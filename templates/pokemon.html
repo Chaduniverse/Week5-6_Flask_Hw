@@ -1,0 +1,19 @@
+{% extends 'base.html' %}   
+
+{% block content %} 
+<form action="/pokemon" method="POST">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name">
+      
+    </div>
+    <div class="form-group">
+      <label for="url">Pokemon_url</label>
+      <input type="text" class="form-control" id="url" name="pokemon_url">
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>  
+        {{pokemon_info}} 
+
+{% endblock %}
