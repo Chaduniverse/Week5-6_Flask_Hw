@@ -1,4 +1,8 @@
-{% extends 'base.html' %}   
+{% extends 'base.html' %} 
+
+{% block title%} 
+ Pokemon Stats
+{% endblock %}
 
 {% block content %} 
 <form action="/pokemon" method="POST">
@@ -13,7 +17,10 @@
     </div>
     
     <button type="submit" class="btn btn-primary">Submit</button>
-  </form>  
+  </form> 
+  <div>
+    <small>{{error}}</small>
+  </div> 
         {{pokemon_info}} 
 
 {% endblock %}
