@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% block title%} 
+ Pokemon Stats
+{% endblock %}
+
+{% block content %} 
+<h1 class="pokemon">Choose Your Pokemon!</h1>
+<form action="/pokemon" method="POST">
+  {{form.hidden_tag()}}
+    
+  <div class="form-group">
+      {{form.name.label()}}
+      {{form.name(class="form-control")}}
+    </div>
+    
+    
+   <div  class="btn btn-primary">
+    {{form.submit_btn(class="btn btn-primary")}}
+  </form> 
+  <div>
+    <small>{{error}}</small>
+  </div> 
+        {{pokemon_info}} 
+
+{% endblock %}

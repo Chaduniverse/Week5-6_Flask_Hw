@@ -5,8 +5,9 @@ Login
 {% endblock %}   
 
 {% block content %}
-<form action="/login" method="POST">
-  {{form.hidden_tag()}}
+
+  <form action="/login" method="POST">
+      {{form.hidden_tag()}}
     
      <div class="form-group">
         {{form.email.label()}}
@@ -21,10 +22,11 @@ Login
     <div class="form-group">
       {{form.submit_btn(class="btn btn-primary")}}
     </div>
-  
-</form> 
+ 
+  </form> 
     <div>
-    {{error}}
+    {{error}}  
+    
     </div>
 
 {% endblock %}
