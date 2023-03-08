@@ -6,19 +6,39 @@ from flask_migrate import Migrate
 
 
 # initializing section  
-app = Flask(__name__)  
-app.config.from_object(Config)  
 
-# registering packages 
-login = LoginManager(app)
+  
 
-# database manager  
-db = SQLAlchemy(app)
-migrate = Migrate(app,db)
+# instances of packages 
+login = LoginManager()
+db = SQLAlchemy()
+migrate = Migrate()
 
-# configure login settings
-login.login_view ='login'
-login.login_message = 'You must be logged in to view this page.'
-login.login_message_category = 'warning'
+def create_app():
+# initializing section 
+    app = Flask(__name__)
+    # link to our config  
+    app.config.from_object(Config)  
 
-from app import routes, models
+    #register packages
+    login.init_app(app) 
+    db.init_app(app)  
+    migrate.init_app(app,db) 
+
+    # configure login settings 
+    login.login_view ='login'
+    login.login_message = 'You must be logged in to view this page.'
+    login.login_message_category = 'warning'  
+
+    #importing blueprints 
+    from app.blueprints.main import main   
+    from app.blueprints.auth import auth
+
+    #registering blueprints
+    app.register_blueprint(main)
+    app.register_blueprint(auth)
+
+    return app
+
+
+
