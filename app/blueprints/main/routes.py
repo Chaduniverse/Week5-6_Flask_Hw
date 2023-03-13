@@ -2,21 +2,23 @@ from flask import render_template, request
 import requests
 from app.blueprints.main import main 
 from app.blueprints.auth.forms import Pick_Pokemon 
-
-
-from flask_login import login_required
+from flask_login import login_required 
+from ...models import User, Pokemon 
 
 
 # routes section
 @main.route('/')
 def home():
-    return render_template('home.html')  
+    users= User.query.all()
+    print(users)
+    return render_template('home.html', users=users)  
 
 
     
 
-@main.route('/pokemon',methods=['GET','POST']) 
-def pokemon():
+@main.route('/search_pokemon',methods=['GET','POST']) 
+@login_required
+def search_pokemon():
     form = Pick_Pokemon()
     pokemon_info={} 
     if request.method == 'POST':
@@ -34,11 +36,26 @@ def pokemon():
                             'sprites':data['sprites']['front_shiny']
                           }
             
-            return pokemon_info
+            
+        if not  Pokemon.check_pokemon(pokemon_info['name']):
+            new_pokemon = Pokemon()
+            new_pokemon.from_dict(pokemon_info)
+            new_pokemon.save_to_db()
+            return new_pokemon
+            
+
+            
+           
     
         else:
             error = ('This is an invalid option')
             return error
-    return render_template('pokemon.html', form=form) 
+    return render_template('pokemon.html', form=form)   
 
 
+# creating a catch pokemon route  
+
+
+        
+        
+        

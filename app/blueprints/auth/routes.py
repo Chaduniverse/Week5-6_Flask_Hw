@@ -60,6 +60,7 @@ def register():
         #save our database  
 
         new_user.save_to_db()
+        flash('You have successfully registered!','success')
         return redirect(url_for('auth.login')) 
     return render_template('register.html',form=form)
 

@@ -1,0 +1,23 @@
+{% extends 'base.html' %}  
+
+{% block title%} 
+    Team
+{% endblock %}
+
+{% block content %} 
+  <h1 class="home_title">My Team</h1>
+  {% for post in posts %}
+
+ 
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{post.image_url}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{post.name}}</h5>
+      <p class="card-text">{{post.ability}}</p>
+        <small class="font-weight-light font-italic">{{moment(post.date_created).fromNow()}} - {{post.author.first_name}}</small>
+      <a href="#" class="btn btn-primary">Attack</a>
+    </div>
+  </div>
+  
+    {% endfor %}
+{% endblock %}
