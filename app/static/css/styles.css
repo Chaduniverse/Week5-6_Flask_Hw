@@ -1,7 +1,56 @@
+* {
+    margin: 0; 
+    padding: 0px; ;
+}
 .pokemon {
     text-align: center;
 }   
 
 .home_title {
     text-align: center;
+    color: rgb(3, 115, 252);
+} 
+
+.poke-body {
+    background-image: url(https://preview.redd.it/d9spuwer2c491.png?width=1050&format=png&auto=webp&s=9ca8c75c63da9f8bb134e955d73e2770d073375e);
+    background-repeat: no-repeat;
+    background-size: cover;
+   
+}
+
+.pokemon {
+    color: yellow;
+}
+.img{
+    background-image: url(https://wallpapercave.com/dwp2x/wp11053830.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.battle_h1 {
+    color: yellow;
+    text-align: center;  
+}
+
+.home_body {
+    background-image: url(https://wallpapercave.com/dwp2x/wp2878374.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.navbar-brand {
+    color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif ;
+    font-size: 40px;
+}  
+.nav-link{
+    color: yellow;
+}
+.navbar-toggler,.navbar-toggler-icon {
+   color: yellow;
+}
+.team-body {
+    background-image: url(https://wallpapercave.com/wp/wp11053817.jpg);
+} 
+.nav-item {
+    color: yellow;
 }

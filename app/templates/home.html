@@ -3,9 +3,13 @@
 {% block title%} 
     Home
 {% endblock %}
-
+<html> 
+  <head>
+    
 {% block content %} 
   <h1 class="home_title">Pokemon Battle Elite</h1>
+  </head>
+  <body class="home_body">
   {% for user in users %}
   {% if user != current_user %}
   <div class="card" style="width: 18rem;">
@@ -18,4 +22,7 @@
   </div>
   {% endif %}
     {% endfor %}
-{% endblock %}
+    {% endblock %}
+    
+  </body>
+</html>

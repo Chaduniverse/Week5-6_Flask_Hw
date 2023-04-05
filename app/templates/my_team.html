@@ -6,6 +6,7 @@
 
 {% block content %} 
 <h1 class="pokemon">My Team</h1>
+<body class="team-body">
 
   {%if my_team %}
   <table class="table table-striped table-hover table-dark">
@@ -17,7 +18,7 @@
         <th scope="col">Base Stat Defense</th>
         <th scope="col">Sprite Url</th>
         <th scope="col">Sprite</th>
-        
+    
         
         
       </tr>
@@ -38,17 +39,7 @@
   </table>
   
   {%endif%}
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
 {% endblock %}
+
+  
+</body>

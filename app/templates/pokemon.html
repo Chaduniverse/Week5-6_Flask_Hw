@@ -3,8 +3,10 @@
 {% block title%} 
  Pokemon Stats
 {% endblock %}
-
+<html>
+  
 {% block content %} 
+<div class="main_poke">
 <h1 class="pokemon">Choose Your Pokemon!</h1>
 <form action="/search_pokemon" method="POST">
   {{form.hidden_tag()}}
@@ -51,19 +53,11 @@
     </tbody>
   </table>
   <a href="{{url_for('main.catch_pokemon',poke_name=pokedata[0].name)}}">Catch</a>
-
   {%endif%}
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-{% endblock %}
+  <body class="poke-body">
+   
+  </body>
+ {% endblock %}
+ 
+</html>
+</div>
